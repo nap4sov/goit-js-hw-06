@@ -23,7 +23,9 @@ function onDestroyButtonClick() {
 
 function createBoxes(amount) {
   const boxesArr = [];
-  let initialDimensions = 30;
+  let initialDimensions = refs.boxesContainer.hasChildNodes()
+    ? parseInt(refs.boxesContainer.lastElementChild.style.width) + 10
+    :30;
 
   for (let i = 1; i <= amount; i += 1) {
     const newBox = document.createElement('div');
@@ -36,3 +38,4 @@ function createBoxes(amount) {
   
   refs.boxesContainer.append(...boxesArr)
 }
+
